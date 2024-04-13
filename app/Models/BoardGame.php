@@ -9,4 +9,5 @@ class BoardGame extends Model
 {
     use HasFactory;
     
+    
 }

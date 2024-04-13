@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BoardGameController extends Controller
 {
@@ -12,8 +13,10 @@ class BoardGameController extends Controller
      */
     public function index()
     {
-        $boardGames = \App\Models\BoardGame::all();
-        return response()->json($boardGames);
+        //$boardGames = \App\Models\BoardGame::all();
+        //return response()->json($boardGames);
+        $tables = DB::select('SELECT table_name FROM information_schema.tables WHERE table_schema = ?', [env('DB_DATABASE')]);
+
     }
 
     /**
