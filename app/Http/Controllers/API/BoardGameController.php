@@ -15,7 +15,10 @@ class BoardGameController extends Controller
     {
         //$boardGames = \App\Models\BoardGame::all();
         //return response()->json($boardGames);
-        $tables = DB::select('SELECT table_name FROM information_schema.tables WHERE table_schema = ?', [env('DB_DATABASE')]);
+        $tables = DB::select('SELECT table_name FROM information_schema.tables WHERE table_schema = ?', ['board_games_group']);
+
+
+        var_dump($tables);
 
     }
 
