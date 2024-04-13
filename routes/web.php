@@ -11,3 +11,4 @@ Route::get('/', function () {
 
 
 Route::get('/api/boardgames', [BoardGameController::class, 'index']);
+Route::get('/test', [TestController::class, 'test']);
