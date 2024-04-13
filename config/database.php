@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$url = parse_url(env('DATABASE_URL'));
+$url = parse_url(env('DATABASE_URL', 'postgres://u5oth74biskiq2:p09878b58c4e53d31096e4e663f6a60b6bd5a73a32fbc41571f017ad6086b984a@c2dr1dq7r4d57i.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d1ibk4kjlqm11v'));
 
 $host = $url['host'] ?? null;
 $port = $url['port'] ?? null;

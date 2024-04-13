@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
             // The 'api' middleware group
             \Illuminate\Http\Middleware\HandleCors::class, // Add CORS middleware here for all API routes
             // Other existing API middleware...
+            
         ],
     ];
 
