@@ -13,8 +13,7 @@ class Kernel extends HttpKernel
 
     protected $middlewareGroups = [
         'web' => [
-            // The 'web' middleware group
-            // Existing web middleware...
+            \Illuminate\Http\Middleware\HandleCors::class,
         ],
 
         'api' => [
