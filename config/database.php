@@ -2,6 +2,14 @@
 
 use Illuminate\Support\Str;
 
+$url = parse_url(env('DATABASE_URL'));
+
+$host = $url['host'] ?? null;
+$port = $url['port'] ?? null;
+$database = substr($url['path'] ?? null, 1);
+$username = $url['user'] ?? null;
+$password = $url['pass'] ?? null;
+
 return [
 
     /*
@@ -16,7 +24,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -81,13 +89,13 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DB_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'laravel'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => env('DB_CHARSET', 'utf8'),
+            'url' => env('DATABASE_URL'),
+            'host' => $host ?: env('DB_HOST', '127.0.0.1'),
+            'port' => $port ?: env('DB_PORT', '5432'),
+            'database' => $database ?: env('DB_DATABASE', 'forge'),
+            'username' => $username ?: env('DB_USERNAME', 'forge'),
+            'password' => $password ?: env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'public',
