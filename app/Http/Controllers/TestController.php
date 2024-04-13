@@ -8,6 +8,6 @@ class TestController extends Controller
 {
     public function test()
     {
-        return "Hello from TestController!";
+        return "Hello from TestController 1x!";
     }
 }
