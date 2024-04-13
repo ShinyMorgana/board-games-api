@@ -11,6 +11,7 @@ Route::get('/', function () {
 
 
 //Route::middleware('cors')->get('/api/boardgames', [BoardGameController::class, 'index']);
+Route::get('api/boardgames', [BoardGameController::class, 'index']);
 Route::get('/boardgames', [BoardGameController::class, 'index']);
 
 
