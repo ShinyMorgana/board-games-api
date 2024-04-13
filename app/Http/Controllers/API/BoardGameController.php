@@ -13,12 +13,12 @@ class BoardGameController extends Controller
      */
     public function index()
     {
-        //$boardGames = \App\Models\BoardGame::all();
-        //return response()->json($boardGames);
-        $tables = DB::select('SELECT table_name FROM information_schema.tables WHERE table_schema = ?', ['board_games_group']);
+        $boardGames = \App\Models\BoardGame::all();
+        return response()->json($boardGames);
+        //$tables = DB::select('SELECT table_name FROM information_schema.tables WHERE table_schema = ?', ['board_games_group']);
 
 
-        var_dump($tables);
+        //var_dump($tables);
 
     }
 
