@@ -9,4 +9,6 @@ class BoardGame extends Model
 {
     use HasFactory;
     protected $table = 'board_games_group.board_games';
+    // Allow for mass assignment on these attributes
+    
 }
