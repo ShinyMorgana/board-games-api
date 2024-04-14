@@ -15,7 +15,7 @@ Route::get('/', function () {
 Route::get('api/boardgames', [BoardGameController::class, 'index']);
 //Route::get('/boardgames', [BoardGameController::class, 'index']);
 Route::post('api/register', [RegisterController::class, 'register']);
-Route::post('api/boardgames', [BoardGameController::class, 'store']);
+Route::post('api/boardgames', [BoardGameController::class, 'store2']);
 
 
 

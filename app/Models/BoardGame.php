@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class BoardGame extends Model
+class BoardGame
 {
-    use HasFactory;
-    protected $table = 'board_games_group.board_games';
-    // Allow for mass assignment on these attributes
+   public int $id;
+   public string $name;
+   public int $max_players;
+   public int $min_players;
+   public int $complexity;
     
 }

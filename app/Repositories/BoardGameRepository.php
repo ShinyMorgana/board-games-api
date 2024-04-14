@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use PDO;
 use PDOException;
-use App\Models\BoardGame1;
+use App\Models\BoardGame;
 
 class BoardGameRepository extends Repository
 {
