@@ -5,6 +5,7 @@ namespace App\Repositories;
 use PDO;
 use PDOException;
 use App\Models\BoardGame1;
+
 class BoardGameRepository extends Repository
 {
     /**
@@ -46,23 +47,14 @@ class BoardGameRepository extends Repository
     }
 
 
-
-    /**
-     * Inserts a new board game into the database.
-     * 
-     * @param array $data The data for the new board game.
-     * @return mixed The new board game or false on failure.
-     */
     function insertBoardGame($boardGame)
     {
         try {
             $stmt = $this->connection->prepare("INSERT INTO board_games_group.board_games (name, min_players, max_players, complexity) VALUES (:name, :min_players, :max_players, :complexity)");
-            $stmt->execute([
-                ':name' => $boardGame['name'],
-                ':min_players' => $boardGame['min_players'],
-                ':max_players' => $boardGame['max_players'],
-                ':complexity' => $boardGame['complexity'],
-            ]);
+
+
+            $stmt->execute([$boardGame->name, $boardGame->min_players, $boardGame->max_players, $boardGame->complexity]);
+
             return $this->getBoardGameById($this->connection->lastInsertId());
         } catch (PDOException $e) {
             echo "Insert Error: " . $e->getMessage();
